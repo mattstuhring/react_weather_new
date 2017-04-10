@@ -2,6 +2,7 @@ var React = require('react');
 
 var About = (props) => {
   return (
+    <div>
       <h1 className="text-center">About</h1>
       <p>This is a weather app built on React</p>
       <p>
@@ -15,6 +16,7 @@ var About = (props) => {
           <a href="http://openweathermap.org">Open Weather Map</a> - Open Weather Map was used to search for weather by city name.
         </li>
       </ul>
+    </div>
   );
 };
 
