@@ -2,13 +2,34 @@ var React = require('react');
 var {Link, IndexLink} = require('react-router');
 
 var Nav = React.createClass({
+  getInitialState: function() {
+    return {
+      location: ''
+    }
+  },
+
+  handleChange: function(e) {
+    this.setState({ location: e.target.value });
+  },
+
   onSearch: function(e) {
     e.preventDefault;
 
-    alert('Not yet wired up!');
+    var location = this.state.location;
+
+    // Converts spaces in the Url path -> %20
+    var encodedLocation = encodeURIComponent(location);
+
+    if (location.length > 0) {
+      this.state.location = '';
+
+      window.location.hash = '#/?location=' + encodedLocation;
+    }
   },
 
   render: function() {
+    var {location} = this.state;
+
     return (
       <div className="top-bar">
         <div className="top-bar-left">
@@ -29,7 +50,7 @@ var Nav = React.createClass({
           <form onSubmit={this.onSearch}>
             <ul className="menu">
               <li>
-                <input type="search" placeholder="Search weather by city"/>
+                <input type="search" value={location} placeholder="Search weather by city" onChange={this.handleChange}/>
               </li>
               <li>
                 <input type="submit" className="button" value="Get weather"/>
