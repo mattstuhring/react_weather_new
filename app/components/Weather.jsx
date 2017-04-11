@@ -8,7 +8,7 @@ var Weather = React.createClass({
   getInitialState: function() {
     return {
       isLoading: false,
-      location: ''
+      location: '',
     }
   },
 
