@@ -16,7 +16,7 @@ module.exports = {
         }
       })
       .catch(function(err) {
-        throw new Error('Unable to fetch weather.');
+        throw new Error('City not found!');
       });
   }
 };
